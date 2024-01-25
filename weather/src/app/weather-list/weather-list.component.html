@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="date">{{details.date}}</div>
+    <div class="elementList" *ngFor="let element of details.list">
+        <div class="field" *ngFor=" let x of element">
+            <img [src]= "'https://openweathermap.org/img/w/' +x.weather[0].icon+'.png'" class="icon">
+            <div>{{ x.dt_txt | date:'HH'}}</div>
+            <div class="temp">{{x.main.temp.toFixed()}} <sup>o</sup></div>
+            <div>{{x.wind.deg}}</div>
+            <div>{{x.wind.gust}}</div>
+        </div>
+    </div>
+</div>

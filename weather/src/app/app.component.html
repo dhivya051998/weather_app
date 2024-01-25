@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Weather App</h1>
+    <div class="parentElement">
+       <div class="inputAlign">
+        <input type="text" class="inputVal" #input (input)="emptyCheck($event)">
+        <span class="error" *ngIf="isError">Enter city name</span>
+        <span class="error" *ngIf="showError">Enter valued city name</span>
+       </div>
+        <button (click)="getTemperature()">Search</button>
+    </div>
+    <div class="weather-container">
+        <div class="field">
+            <p>City Name :  <span class="cityName">{{city}}</span></p>
+            <p>Date :  <span class="date" >{{currentDate}}</span> </p>
+        </div>
+        <div class="field">
+            <p>latitude :  <span>{{latitude}}</span></p>
+            <p>longitude :  <span>{{longitude}}</span></p>
+        </div>
+    </div>
+    <div class="day-weather">
+        <div class="heading">
+            <span class="allDate">Date</span>
+            <div class="title">
+                <span>Image</span>
+                <span>Hours</span>
+                <span>Temperature</span>
+                <span>Wind</span>
+                <span>Wind Gust</span>
+            </div>
+        </div>
+        <div class="content">
+            <app-weather-list [details]="details" *ngFor="let details of weatherDetail"></app-weather-list>
+        </div>
+    </div>
+</div>
