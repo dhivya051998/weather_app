@@ -14,7 +14,7 @@ export class AppComponent {
   currentDate!: string;
   latitude!: number;
   longitude!: number;
-  weatherDetail: WeatherDetails[] = [];
+  weatherDetail!: WeatherDetails[]
   isError:boolean = false;
   showError:boolean= false;
   emptyCheck(event:any){
@@ -50,6 +50,7 @@ export class AppComponent {
     this.latitude = data.city.coord.lat;
     this.longitude = data.city.coord.lon;
     var cDate = new Date();
+    this.weatherDetail =[]
     for (let i = 0; i <= 5; i++) {
       let nextDate = new Date(cDate).getDate() + i;
       this.weatherDetail.push({ date: nextDate.toString(), list: [] })

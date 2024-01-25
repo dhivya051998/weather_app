@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs/weather",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -89,13 +89,28 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [] 
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "b942a6d2-3241-4626-9714-187a2fe692d0"
+    "analytics": "b942a6d2-3241-4626-9714-187a2fe692d0",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
